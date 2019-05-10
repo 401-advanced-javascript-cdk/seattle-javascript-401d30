@@ -43,7 +43,16 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    let wordA = a.toUpperCase();
+    let wordB = b.toUpperCase();
+    if (wordA < wordB) {
+      return -1;
+    }
+    else if (wordA > wordB) {
+      return 1;
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,7 +69,16 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    let priceA = a.price;
+    let priceB = b.price;
+    if (priceA > priceB) {
+      return 1;
+    }
+    else if (priceA < priceB) {
+      return -1;
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -72,7 +90,16 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    let lengthA = a.toString().length;
+    let lengthB = b.toString().length;
+    if (lengthA > lengthB) {
+      return 1;
+    }
+    else if (lengthA < lengthB) {
+      return -1;
+    }
+  })
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -94,7 +121,16 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    let nameA = a.lastName;
+    let nameB = b.lastName;
+    if (nameA > nameB) {
+      return 1;
+    }
+    else if (nameA < nameB) {
+      return -1;
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -108,7 +144,31 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    let nameA = a.lastName;
+    let nameB = b.lastName;
+    if (nameA === nameB) {
+      let firstNames = [a.firstName, b.firstName];
+      return firstNames.sort((c, d) => {
+        if (c > d) {
+          return 1;
+        }
+        else if (c < d) {
+          return -1;
+        }
+      })
+    }
+    if (a.age === b.age) {
+      let ages = [a.age, b.age];
+      return ages.sort((e, f) => e - f);
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    else if (nameA < nameB) {
+      return -1;
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
