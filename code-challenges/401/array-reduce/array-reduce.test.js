@@ -71,10 +71,11 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  return arr.reduce((acc, cur, int, arr) => {
-    
-  });
+  return arr.reduce((acc, cur) => {
+    return [...acc, cur.name];
+  }, []);
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -84,8 +85,11 @@ Write a function named reversedString that takes in a string and returns a strin
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (arr) => {
-  // Solution code here...
+const reversedString = (str) => {
+  let arr = str.split('');
+  return arr.reduce((acc, cur) => {
+    return cur + acc
+  }, '')
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -138,7 +142,14 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, cur) => {
+    if (cur.children) {
+    return acc + cur.children.length;
+    }
+    else {
+      return acc
+    }
+  }, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -150,7 +161,10 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  let total = arr.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
+  return total / arr.length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -175,7 +189,8 @@ const countPrimeNumbers = (arr) => {
     if (isPrime(cur) !== false) {
       return acc + 1;
     }
-  })
+    else { return acc }
+  }, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -218,7 +233,12 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  return arr.reduce((acc, cur) => {
+    if (cur.stat.name === statName) {
+      return acc = cur;
+    }
+    else { return acc }
+  }, null)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -232,7 +252,15 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
+  let aCharacters = arr.filter(character => {
+    return character.name.includes('a')
+  })
+  return aCharacters.reduce((acc, cur) => {
+    if (cur.children) {
+      return [...acc, ...cur.children]
+    }
+    else { return acc }
+  }, [])
 };
 
 /* ------------------------------------------------------------------------------------------------
