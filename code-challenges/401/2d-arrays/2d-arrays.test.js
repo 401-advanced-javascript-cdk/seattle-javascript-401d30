@@ -183,8 +183,47 @@ The function should parse the string as rows and columns and compute the sum of 
 For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
+/*
+accepts a string representing rows and columns in a table.
+
+input === '1,1,1\n4,4,4\n9,9,9'
+
+Columns are seperated by commas. Rows are seperated by newline "\n" characters.
+
+1 1 1 (\n)
+4 4 4 (\n)
+9 9 9 (\n)
+
+parse the string as rows                    //  and columns (Return an array with the sum of the values in each row.)
+
+[row1, row2, row3];
+
+// work
+
+[[1,1,1] [4,4,4] [9,9,9]]
+
+compute the sum of the values for each row.
+
+// work
+
+[3,16,27]
+
+Return an array with the sum of the values in each row.
+
+results = [3,16,27]
+*/
+
 const excel = (str) => {
-  
+  let rows = [];
+  for (let i = 0; i <= 2; i++) {
+    let newRow = [];
+    for (let j = 0; j <= 6; j + 2) {
+      newRow.push(str.charAt(j));
+    }
+    rows.push(newRow);
+  }
+  console.log(rows)
+  return rows;
 };
 
 /* ------------------------------------------------------------------------------------------------
