@@ -128,7 +128,15 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let total = 0;
+  arr.map(character => {
+    total++;
+    if (character.spouse !== null) {
+      total++;
+    }
+    total = total + character.children.length;
+  });
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
