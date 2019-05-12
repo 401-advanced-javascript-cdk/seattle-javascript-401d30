@@ -96,7 +96,6 @@ const hasChildrenValues = (arr, character) => {
     }
     else { return false }
   });
-  console.log(results[0])
   if (results[0] == undefined) {return false}
   else if (results) { return true }
 };
@@ -116,7 +115,6 @@ const hasChildrenEntries = (arr, character) => {
     }
     else { return false }
   });
-  console.log(results[0])
   if (results[0] == undefined) {return false}
   else if (results) { return true }
 };
@@ -151,7 +149,12 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-
+  arr.map(character => {
+    let size = 1;
+    if (character.spouse !== null) { size++ }
+    if (character.children) { size = size + character.children.length }
+    sizes.push({house: character.house, members: size})
+  })
   return sizes;
 };
 
@@ -175,7 +178,13 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  arr.map(character => {
+    let size = 1;
+    if (character.spouse !== null) { size++ }
+    if (character.children) { size = size + character.children.length }
+    if (deceasedSpouses.includes(character.spouse)) { size-- }
+    survivors.push({house: character.house, members: size})
+  })
   return survivors;
 };
 
