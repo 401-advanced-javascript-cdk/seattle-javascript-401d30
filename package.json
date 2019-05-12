@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/kozlowskicd/401d30-data-structures-and-algorithms/issues"
   },
-  "homepage": "https://github.com/kozlowskicd/401d30-data-structures-and-algorithms#readme"
+  "homepage": "https://github.com/kozlowskicd/401d30-data-structures-and-algorithms#readme",
+  "dependencies": {
+    "jest": "^24.8.0"
+  }
 }
