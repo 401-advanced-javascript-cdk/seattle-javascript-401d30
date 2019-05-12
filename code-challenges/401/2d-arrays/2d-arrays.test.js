@@ -215,14 +215,14 @@ results = [3,16,27]
 
 const excel = (str) => {
   let rows = [];
-  for (let i = 0; i <= 2; i++) {
-    let newRow = [];
-    for (let j = 0; j <= 6; j + 2) {
-      newRow.push(str.charAt(j));
-    }
-    rows.push(newRow);
-  }
-  console.log(rows)
+  // for (let i = 0; i <= 2; i++) {
+  //   let newRow = [];
+  //   for (let j = 0; j <= 6; j + 2) {
+      
+  //   }
+  //   rows.push(newRow);
+  // }
+  // console.log(rows)
   return rows;
 };
 
