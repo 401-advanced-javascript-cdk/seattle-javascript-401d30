@@ -39,12 +39,12 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  let results = arr.filter( val => {
-    console.log(val);
-    forbiddenValues.indexOf(val) 
+  return arr.filter(val => {
+    if (forbiddenValues.indexOf(val) === -1) {
+      return val;
+    }
   }
   );
-  console.log(results);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -87,7 +87,11 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  // Solution code here...
+  return arr.filter(obj => {
+    if (obj.baseStat > minBaseStat) {
+      return obj;
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -99,7 +103,15 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-  // Solution code here...
+  let filtered = arr.filter(obj => {
+    if (obj.baseStat > minBaseStat) {
+      return obj;
+    }
+  })
+  let results = filtered.reduce((acc, cur) => {
+    return [...acc, cur.stat.name]
+  }, []);
+  return results
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -152,7 +164,11 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (arr) => {
-  // Solution code here...
+  return arr.filter(char => {
+    if (!char.children) {
+      return char
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -164,7 +180,19 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 ------------------------------------------------------------------------------------------------ */
 
 const evenOddNumericValues = (arr) => {
-  // Solution code here...
+  let filtered = arr.filter(val => {
+    if (typeof val === 'number') {
+      return val
+    }
+  });
+  return filtered.map(num => {
+    if (num % 2 === 0) {
+      return 'even'
+    }
+    else if (num % 2 !== 0) {
+      return 'odd'
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
