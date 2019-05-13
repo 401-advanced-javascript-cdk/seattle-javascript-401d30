@@ -76,8 +76,13 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
-  return result;
+  recipe.ingredients.map(val => {
+    val = val.split(' ')
+    val.shift()
+    val.shift()
+    result.push(val.join(' '))
+  })
+  return result
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,8 +95,13 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
-  return result;
+  recipe.ingredients.map(val => {
+    val = val.split(' ')
+    val.shift()
+    val.shift()
+    result.push(val.join(' '))
+  })
+  return result
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -106,7 +116,10 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+   recipe.steps.map(val => {
+    val = val.split(' ')
+    result.push(val[0])
+  })
   return result;
 };
 
@@ -124,7 +137,15 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  let counter = 0;
+  arr.map(val => {
+    if (val % 2 === 0) {
+      arr.splice(counter, 1)
+    }
+    else { 
+    counter++ }
+  })
+  return arr
 };
 
 /* ------------------------------------------------------------------------------------------------
